@@ -1,0 +1,22 @@
+#ifndef GRAPHE1_H
+#define GRAPHE1_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <limits.h>
+
+typedef struct {
+    int numVertices;
+    int** adjMatrix;
+    bool* visited;
+} Graphe;
+
+Graphe* creerGraphe(int numVertices);
+void ajouterArete(Graphe* graphe, int src, int dest, int poids);
+void libererGraphe(Graphe* graphe);
+Graphe* chargerGrapheDepuisFichier(const char* filename);
+
+void dfs(Graphe* graphe, int startVertex, int* predecesseurs, int* distances, int* chemin, int* cheminIndex);
+
+#endif // GRAPHE1_H
